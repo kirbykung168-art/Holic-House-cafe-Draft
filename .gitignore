@@ -1,0 +1,11 @@
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+desktop.ini
+
+# Helper batch files I generated for Cowork — not project source
+open-github-repos.bat
+open-site.bat
+start-claude.bat
+push-to-github.bat

@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1a1410" />
+  <title>Holic Haus cafe&amp;garden — Coffee &amp; quiet hours in Samut Prakan</title>
+  <meta name="description" content="A small Samut Prakan coffee shop with a shaded outdoor garden, brunch menu, and a 4.6-star reputation. Open Tue-Sun, 8:30am-5pm. ฿1-200." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cafe:   { 50:'#fffaf2',100:'#faf6ef',200:'#f3ece0',300:'#e6dccb',400:'#d5c1a3', ink:'#1a1410', ink2:'#3b322b', ink3:'#6b5e54' },
+            terra:  { 50:'#fff5ef',100:'#fbd9c2',300:'#ea6b2a',500:'#c2410c',700:'#8a2a08',900:'#3d1604' },
+            garden: { 100:'#dde6ce',300:'#a3b87f',500:'#6d8a4f',700:'#3d5639',900:'#1f2a1e' },
+          },
+          fontFamily: {
+            display: ['"Fraunces"','Iowan Old Style','Georgia','serif'],
+            sans:    ['"Inter"','system-ui','-apple-system','sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    :root { --gutter: clamp(20px,4vw,40px); --max-w: 72rem; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { font-family:'Inter',system-ui,sans-serif; color:#1a1410; background:#fffaf2; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; line-height:1.7; }
+    h1,h2,h3,h4 { font-family:'Fraunces',Georgia,serif; line-height:1.05; letter-spacing:-0.03em; }
+    .display-tight { letter-spacing:-0.035em; line-height:1.02; }
+    .grain::before { content:''; position:absolute; inset:0; pointer-events:none; opacity:.22; mix-blend-mode:overlay;
+      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>"); }
+    .bg-warm-paper { background:
+      radial-gradient(1200px 600px at 0% -10%, rgba(234,107,42,0.10), transparent 60%),
+      radial-gradient(900px 700px at 100% 0%, rgba(109,138,79,0.10), transparent 55%),
+      radial-gradient(1200px 800px at 50% 100%, rgba(213,193,163,0.18), transparent 60%),
+      linear-gradient(180deg,#fffaf2 0%,#faf6ef 100%); }
+    .bg-deep-garden { background:
+      radial-gradient(800px 500px at 10% 0%, rgba(109,138,79,0.35), transparent 60%),
+      radial-gradient(700px 500px at 100% 100%, rgba(194,65,12,0.35), transparent 55%),
+      linear-gradient(135deg,#1f2a1e 0%,#2c3a2a 100%); }
+    .hero-img { filter:saturate(1.05) contrast(1.03); }
+    .hero-tint { background:linear-gradient(135deg, rgba(194,65,12,0.18), rgba(31,42,30,0.18)); mix-blend-mode:multiply; }
+    .hero-scrim { background:
+      linear-gradient(180deg, rgba(26,20,16,0.10) 0%, rgba(26,20,16,0.45) 55%, rgba(26,20,16,0.85) 100%),
+      linear-gradient(90deg, rgba(26,20,16,0.6) 0%, rgba(26,20,16,0) 60%); }
+    .btn { display:inline-flex; align-items:center; gap:10px; padding:14px 22px; border-radius:999px; font-weight:600; font-size:15px; text-decoration:none; cursor:pointer; border:0; white-space:nowrap;
+      transition: transform 200ms cubic-bezier(0.34,1.56,0.64,1), box-shadow 200ms ease, background-color 180ms ease, color 180ms ease, border-color 180ms ease; }
+    .btn-lg { padding:18px 28px; font-size:16px; }
+    .btn-primary { background:#c2410c; color:#fff;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.16) inset, 0 10px 22px -8px rgba(194,65,12,0.55), 0 2px 4px rgba(61,22,4,0.25); }
+    .btn-primary:hover { background:#8a2a08; transform:translateY(-1px); }
+    .btn-primary:active { transform:translateY(0); }
+    .btn-primary:focus-visible { outline:2px solid #fbd9c2; outline-offset:3px; }
+    .btn-ghost { background:transparent; color:#1a1410; border:1.5px solid rgba(26,20,16,0.18); }
+    .btn-ghost:hover { background:rgba(26,20,16,0.04); border-color:rgba(26,20,16,0.32); transform:translateY(-1px); }
+    .btn-ghost:focus-visible { outline:2px solid #c2410c; outline-offset:3px; }
+    .btn-ghost-light { background:rgba(255,255,255,0.06); color:#fff; border:1.5px solid rgba(255,255,255,0.5); }
+    .btn-ghost-light:hover { background:rgba(255,255,255,0.14); border-color:#fff; transform:translateY(-1px); }
+    .btn-ghost-light:focus-visible { outline:2px solid #fff; outline-offset:3px; }
+    .btn .arrow { transition:transform 220ms cubic-bezier(0.34,1.56,0.64,1); }
+    .btn:hover .arrow { transform:translateX(4px); }
+    a:focus-visible { outline:2px solid #c2410c; outline-offset:3px; border-radius:4px; }
+    .eyebrow { text-transform:uppercase; letter-spacing:0.18em; font-size:11px; font-weight:600; }
+    .menu-card { background:#fff; border:1px solid #e6dccb; border-radius:16px; padding:22px 22px 20px;
+      box-shadow: 0 1px 1px rgba(26,20,16,0.04), 0 6px 18px -8px rgba(138,42,8,0.14);
+      transition: transform 220ms cubic-bezier(0.34,1.56,0.64,1), box-shadow 220ms ease, border-color 220ms ease; position:relative; }
+    .menu-card:hover { transform:translateY(-3px); box-shadow:0 2px 4px rgba(26,20,16,0.06), 0 20px 36px -16px rgba(138,42,8,0.28); border-color:#fbd9c2; }
+    .menu-card--star { background:linear-gradient(180deg,#fff 0%,#fff5ef 100%); border-color:#fbd9c2; }
+    .tile { position:relative; overflow:hidden; border-radius:16px; background:#e6dccb; }
+    .tile img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 600ms ease; }
+    .tile:hover img { transform:scale(1.04); }
+    .tile-tint { position:absolute; inset:0; background:linear-gradient(180deg,transparent 40%, rgba(26,20,16,0.45) 100%); mix-blend-mode:multiply; pointer-events:none; }
+    .tile-cap { position:absolute; left:14px; bottom:12px; background:rgba(26,20,16,0.7); color:#fff; padding:6px 10px; border-radius:6px; font-size:12px; backdrop-filter:blur(4px); }
+    .tile-fallback-1 { background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), transparent 40%), linear-gradient(135deg,#4a2d1c 0%,#c2410c 60%,#ea6b2a 100%); }
+    .tile-fallback-2 { background: radial-gradient(circle at 60% 40%, rgba(255,255,255,.25), transparent 50%), linear-gradient(135deg,#d6a474 0%,#b07a4a 100%); }
+    .tile-fallback-3 { background: radial-gradient(circle at 20% 70%, rgba(255,255,255,.2), transparent 50%), linear-gradient(135deg,#1f2a1e 0%,#3d5639 50%,#6d8a4f 100%); }
+    .tile-fallback-4 { background: repeating-linear-gradient(90deg, rgba(0,0,0,.06) 0 2px, transparent 2px 22px), linear-gradient(135deg,#c2410c 0%,#6b2410 100%); }
+    .status-dot::before { content:''; width:8px; height:8px; border-radius:50%; background:#a59a8e; box-shadow:0 0 0 4px rgba(165,154,142,.25); display:inline-block; margin-right:8px; vertical-align:1px; }
+    .status-dot.is-open::before { background:#6cd06c; box-shadow:0 0 0 4px rgba(108,208,108,.25); }
+    .status-dot.is-closed::before { background:#f08a8a; box-shadow:0 0 0 4px rgba(240,138,138,.25); }
+    .sticky-cta { position:fixed; left:16px; right:16px; bottom:16px; z-index:80; display:none; align-items:center; justify-content:space-between; padding:14px 22px; background:#c2410c; color:#fff; border-radius:999px; text-decoration:none; font-weight:600; box-shadow:0 10px 30px rgba(194,65,12,0.45); }
+    @media (max-width: 720px) { .sticky-cta { display:flex; } body { padding-bottom:80px; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration:0.01ms !important; animation:none !important; } html { scroll-behavior:auto; } .tile:hover img { transform:none; } }
+  </style>
+</head>
+<body class="bg-cafe-50 text-cafe-ink antialiased">
+
+<header class="sticky top-0 z-50 backdrop-blur-md bg-cafe-50/80 border-b border-cafe-ink/5">
+  <div class="mx-auto flex items-center gap-6 px-[var(--gutter)] py-3.5" style="max-width:var(--max-w);">
+    <a href="#top" class="flex items-center gap-2.5 no-underline text-cafe-ink">
+      <span class="grid place-items-center w-8 h-8 rounded-lg bg-terra-500 text-white font-display font-bold text-sm">HH</span>
+      <span class="font-display font-bold text-lg leading-none">Holic Haus</span>
+    </a>
+    <nav class="ml-auto hidden md:flex gap-6 text-[15px] text-cafe-ink2" aria-label="Sections">
+      <a href="#menu" class="hover:text-terra-500 no-underline">Menu</a>
+      <a href="#visit" class="hover:text-terra-500 no-underline">Visit</a>
+      <a href="#gallery" class="hover:text-terra-500 no-underline">Gallery</a>
+      <a href="#reviews" class="hover:text-terra-500 no-underline">Reviews</a>
+    </nav>
+    <a class="btn btn-primary md:ml-0 ml-auto" style="padding:10px 16px;font-size:14px;" href="#visit" data-cta="nav-directions">
+      <span class="hidden sm:inline">Get directions</span><span class="sm:hidden">Directions</span>
+      <span class="arrow" aria-hidden="true">→</span>
+    </a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="relative isolate overflow-hidden min-h-[90vh] flex">
+  <div class="absolute inset-0 -z-10">
+    <img src="images/hero-large.jpg" alt="" class="hero-img w-full h-full object-cover" style="object-position:center 55%;" loading="eager" fetchpriority="high" onerror="this.style.display='none'"/>
+    <div class="absolute inset-0 hero-tint"></div>
+    <div class="absolute inset-0 hero-scrim"></div>
+  </div>
+  <div class="relative mx-auto w-full px-[var(--gutter)] pt-28 pb-20 text-white" style="max-width:var(--max-w);">
+    <p class="eyebrow text-terra-100 mb-4">Samut Prakan · Srinagarindra Rd</p>
+    <h1 class="display-tight font-display font-medium mb-5" style="font-size:clamp(44px,7.5vw,88px);">
+      A shaded garden,<br/><em class="not-italic font-display font-medium italic text-terra-100">slow coffee.</em>
+    </h1>
+    <p class="max-w-xl leading-relaxed text-white/85 mb-7" style="font-size:clamp(16px,1.5vw,19px);">
+      A small neighbourhood cafe tucked off Srinagarindra Road. Brunch, bakery, and a leafy back garden built for sitting still.
+    </p>
+    <div class="flex flex-wrap gap-3 mb-9">
+      <a class="btn btn-primary btn-lg" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Holic+Haus+cafe%26garden/@13.5958463,100.6090177,17z" data-cta="hero-directions">
+        <span>Get directions</span><span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="btn btn-ghost-light btn-lg" href="tel:+66641749462" data-cta="hero-call">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+        <span>Call to reserve</span>
+      </a>
+    </div>
+    <div class="inline-flex flex-wrap items-center gap-4 rounded-full bg-white/10 border border-white/20 backdrop-blur-md px-4 py-2.5 text-sm">
+      <span class="inline-flex gap-0.5 text-amber-300" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M12 17.3 6.2 20.5l1.1-6.4L2.6 9.6l6.5-.9L12 2.8l2.9 5.9 6.5.9-4.7 4.5 1.1 6.4z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M12 17.3 6.2 20.5l1.1-6.4L2.6 9.6l6.5-.9L12 2.8l2.9 5.9 6.5.9-4.7 4.5 1.1 6.4z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M12 17.3 6.2 20.5l1.1-6.4L2.6 9.6l6.5-.9L12 2.8l2.9 5.9 6.5.9-4.7 4.5 1.1 6.4z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M12 17.3 6.2 20.5l1.1-6.4L2.6 9.6l6.5-.9L12 2.8l2.9 5.9 6.5.9-4.7 4.5 1.1 6.4z"/></svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M12 17.3 6.2 20.5l1.1-6.4L2.6 9.6l6.5-.9L12 2.8l2.9 5.9 6.5.9-4.7 4.5 1.1 6.4z"/></svg>
+      </span>
+      <span><strong>4.6</strong> · 98 Google reviews</span>
+      <span class="hidden sm:inline italic text-white/85 pl-4 border-l border-white/30">"A little cafe with a beautiful garden — good vibes."</span>
+    </div>
+    <p id="liveStatus" class="mt-5 inline-flex items-center text-sm text-white/85 status-dot" aria-live="polite">Checking today's hours…</p>
+  </div>
+</section>
+
+<section class="bg-cafe-ink text-cafe-100" aria-label="At a glance">
+  <ul class="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-7 gap-y-2 px-[var(--gutter)] py-6 list-none" style="max-width:var(--max-w);">
+    <li class="flex flex-col gap-1"><span class="eyebrow text-cafe-ink3">Open today</span><span id="todayHours" class="font-medium text-[15px]">8:30 — 17:00</span></li>
+    <li class="flex flex-col gap-1"><span class="eyebrow text-cafe-ink3">Price</span><span class="font-medium text-[15px]">฿1 – 200</span></li>
+    <li class="flex flex-col gap-1"><span class="eyebrow text-cafe-ink3">Good for</span><span class="font-medium text-[15px]">Brunch · Wi-Fi · Outdoor</span></li>
+    <li class="flex flex-col gap-1"><span class="eyebrow text-cafe-ink3">Options</span><span class="font-medium text-[15px]">Dine-in · Pickup · Delivery</span></li>
+  </ul>
+</section>
+
+<section id="menu" class="bg-warm-paper relative grain">
+  <div class="mx-auto px-[var(--gutter)] py-20" style="max-width:var(--max-w);">
+    <div class="max-w-2xl mb-12">
+      <p class="eyebrow text-terra-500 mb-4">Menu highlights</p>
+      <h2 class="font-display font-medium display-tight mb-3" style="font-size:clamp(32px,4.4vw,52px);">What people order, twice.</h2>
+      <p class="text-cafe-ink2 text-[17px] leading-relaxed">Espresso bar, cold brews, juice, and a small bakery case. The orange coffee and hazelnut latte get name-checked in reviews, often.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Ice Cappuccino</h3><span class="font-semibold text-terra-500">฿85</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">House espresso, cold milk, light foam. The everyday order.</p></article>
+      <article class="menu-card menu-card--star"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Hazelnut Latte <span class="ml-1 inline-block align-middle text-[10px] font-semibold uppercase tracking-widest bg-terra-500 text-white px-2 py-0.5 rounded-full">Guest pick</span></h3><span class="font-semibold text-terra-500">฿110</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">"อร่อยมากๆๆๆๆๆ" — local review. Roasted, nutty, gently sweet.</p></article>
+      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Orange Coffee</h3><span class="font-semibold text-terra-500">฿120</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">Citrus brightness over a long black. A reason people come back.</p></article>
+      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Cold Brew</h3><span class="font-semibold text-terra-500">฿95</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">Steeped 16 hours. Low acid, full body. Best with shade.</p></article>
+      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Strawberry Cake</h3><span class="font-semibold text-terra-500">฿130</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">Fresh sponge, cream, seasonal strawberries from the bakery case.</p></article>
+      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Butter Croissant</h3><span class="font-semibold text-terra-500">฿70</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">Flaky, properly laminated. The brunch order on Sunday morning.</p></article>
+    </div>
+    <p class="text-center text-[13px] text-cafe-ink3 mt-7">Cash &amp; mobile pay welcome · Prices vary; full menu in store.</p>
+  </div>
+</section>
+
+<section id="visit" class="bg-cafe-100 relative grain">
+  <div class="mx-auto px-[var(--gutter)] py-20 grid lg:grid-cols-2 gap-10 lg:gap-14 items-start" style="max-width:var(--max-w);">
+    <div>
+      <p class="eyebrow text-terra-500 mb-4">Visit us</p>
+      <h2 class="font-display font-medium display-tight mb-4" style="font-size:clamp(28px,4vw,44px);">Tucked off Srinagarindra,<br/>across from iMall.</h2>
+      <p class="text-cafe-ink2 text-[17px] leading-relaxed mb-7 max-w-lg">Easiest by car or motorbike along Srinagarindra Road. Look for the orange container wall behind a row of green.</p>
+      <dl class="grid gap-6 mb-7">
+        <div><dt class="eyebrow text-cafe-ink3 mb-1">Address</dt><dd class="text-[16px]">Srinagarindra Rd, Mueang Samut Prakan District,<br/>Samut Prakan 10270, Thailand</dd></div>
+        <div><dt class="eyebrow text-cafe-ink3 mb-1">Phone</dt><dd class="text-[16px]"><a class="hover:text-terra-500" href="tel:+66641749462">064 174 9462</a></dd></div>
+        <div><dt class="eyebrow text-cafe-ink3 mb-2">Hours</dt><dd>
+          <table class="text-[14px]"><tbody>
+            <tr><th class="text-left font-medium text-cafe-ink2 pr-6 pb-1 w-14">Mon</th><td class="text-cafe-ink3 pb-1">Closed</td></tr>
+            <tr><th class="text-left font-medium text-cafe-ink2 pr-6 pb-1">Tue</th><td class="pb-1 tabular-nums">8:30 — 17:00</td></tr>
+            <tr><th class="text-left font-medium text-cafe-ink2 pr-6 pb-1">Wed</th><td class="pb-1 tabular-nums">8:30 — 17:00</td></tr>
+            <tr><th class="text-left font-medium text-cafe-ink2 pr-6 pb-1">Thu</th><td class="pb-1 tabular-nums">8:30 — 17:00</td></tr>
+            <tr><th class="text-left font-medium text-cafe-ink2 pr-6 pb-1">Fri</th><td class="pb-1 tabular-nums">8:30 — 17:00</td></tr>
+            <tr><th class="text-left font-medium text-cafe-ink2 pr-6 pb-1">Sat</th><td class="pb-1 tabular-nums">8:30 — 17:00</td></tr>
+            <tr><th class="text-left font-medium text-cafe-ink2 pr-6">Sun</th><td class="tabular-nums">8:30 — 17:00</td></tr>
+          </tbody></table>
+        </dd></div>
+      </dl>
+      <div class="flex flex-wrap gap-2.5">
+        <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Holic+Haus+cafe%26garden" data-cta="visit-directions"><span>Get directions</span><span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="tel:+66641749462" data-cta="visit-call">Call 064 174 9462</a>
+      </div>
+    </div>
+    <div class="rounded-2xl overflow-hidden bg-cafe-200" style="aspect-ratio:4/5; min-height:360px; box-shadow:0 4px 10px -6px rgba(26,20,16,0.18), 0 30px 60px -20px rgba(138,42,8,0.35);">
+      <iframe title="Map to Holic Haus" src="https://www.google.com/maps?q=Holic+Haus+cafe+garden+Samut+Prakan&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full h-full block" style="border:0;" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="bg-warm-paper relative grain">
+  <div class="mx-auto px-[var(--gutter)] py-20" style="max-width:var(--max-w);">
+    <div class="max-w-2xl mb-12">
+      <p class="eyebrow text-terra-500 mb-4">In the garden</p>
+      <h2 class="font-display font-medium display-tight" style="font-size:clamp(32px,4.4vw,52px);">The room you came for.</h2>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3" style="grid-auto-rows:180px;">
+      <figure class="tile col-span-2" style="grid-row:span 2;">
+        <img src="images/hero-exterior.jpg" alt="Outdoor seating at Holic Haus." loading="lazy" onerror="this.style.display='none'"/>
+        <div class="tile-tint"></div>
+        <figcaption class="tile-cap">The garden, midday — shade and sound.</figcaption>
+      </figure>
+      <figure class="tile tile-fallback-1"><div class="tile-tint"></div><figcaption class="tile-cap">Espresso bar</figcaption></figure>
+      <figure class="tile tile-fallback-2"><div class="tile-tint"></div><figcaption class="tile-cap">Bakery case</figcaption></figure>
+      <figure class="tile tile-fallback-3"><div class="tile-tint"></div><figcaption class="tile-cap">Garden green</figcaption></figure>
+      <figure class="tile tile-fallback-4"><div class="tile-tint"></div><figcaption class="tile-cap">Container wall</figcaption></figure>
+    </div>
+    <p class="text-center text-[13px] text-cafe-ink3 mt-5">Photos: <a class="hover:text-terra-500" href="https://www.google.com/maps/place/Holic+Haus+cafe%26garden/@13.5958463,100.6090177,17z" target="_blank" rel="noopener">Google Maps listing</a> · <a class="hover:text-terra-500" href="https://www.facebook.com/holichaus/" target="_blank" rel="noopener">Facebook page</a></p>
+  </div>
+</section>
+
+<section id="reviews" class="bg-cafe-100 relative grain">
+  <div class="mx-auto px-[var(--gutter)] py-20" style="max-width:var(--max-w);">
+    <div class="max-w-2xl mb-12">
+      <p class="eyebrow text-terra-500 mb-4">What guests say</p>
+      <h2 class="font-display font-medium display-tight" style="font-size:clamp(32px,4.4vw,52px);">4.6 stars, 98 reviews.</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <blockquote class="relative bg-white border border-cafe-300 rounded-2xl p-6" style="box-shadow:0 1px 1px rgba(26,20,16,0.04), 0 6px 18px -8px rgba(138,42,8,0.18);">
+        <span class="absolute top-1 left-4 text-terra-100 font-display text-6xl leading-none">"</span>
+        <p class="font-display font-medium text-[19px] leading-snug mb-4 relative">The atmosphere is very nice, feeling warm and comfortable. There's a lot of greenery in the outdoor area, making it shady and pleasant. Highly recommended.</p>
+        <footer class="text-[13px] text-cafe-ink3">— Panchanita S., <cite class="not-italic text-cafe-ink2">Local Guide</cite></footer>
+      </blockquote>
+      <blockquote class="relative bg-white border border-cafe-300 rounded-2xl p-6" style="box-shadow:0 1px 1px rgba(26,20,16,0.04), 0 6px 18px -8px rgba(138,42,8,0.18);">
+        <span class="absolute top-1 left-4 text-terra-100 font-display text-6xl leading-none">"</span>
+        <p class="font-display font-medium text-[19px] leading-snug mb-4 relative">Very nice little coffee shop with a decent brunch menu. Has outdoor seating in a nice little nature cove. Service is good.</p>
+        <footer class="text-[13px] text-cafe-ink3">— Ben R., <cite class="not-italic text-cafe-ink2">Local Guide</cite></footer>
+      </blockquote>
+      <blockquote class="relative bg-white border border-cafe-300 rounded-2xl p-6" style="box-shadow:0 1px 1px rgba(26,20,16,0.04), 0 6px 18px -8px rgba(138,42,8,0.18);">
+        <span class="absolute top-1 left-4 text-terra-100 font-display text-6xl leading-none">"</span>
+        <p class="font-display font-medium text-[19px] leading-snug mb-4 relative">Nice place and vibe! Love the staff too. Best to work, best to chill. Love the coffee and the croissant.</p>
+        <footer class="text-[13px] text-cafe-ink3">— Janene G., <cite class="not-italic text-cafe-ink2">Local Guide</cite></footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="bg-deep-garden text-white relative grain">
+  <div class="mx-auto px-[var(--gutter)] py-20 text-center" style="max-width:var(--max-w);">
+    <h2 class="font-display font-medium display-tight mb-4" style="font-size:clamp(32px,5vw,56px);">We're open <em class="not-italic italic text-terra-100">tomorrow</em> from 8:30.</h2>
+    <p class="text-white/80 mb-8 max-w-xl mx-auto">The orange coffee won't make itself. Save the route while you remember.</p>
+    <div class="flex flex-wrap justify-center gap-3">
+      <a class="btn btn-primary btn-lg" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Holic+Haus+cafe%26garden/@13.5958463,100.6090177,17z" data-cta="final-directions"><span>Get directions</span><span class="arrow" aria-hidden="true">→</span></a>
+      <a class="btn btn-ghost-light btn-lg" target="_blank" rel="noopener" href="https://www.facebook.com/holichaus/" data-cta="final-fb">Follow on Facebook</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="bg-cafe-ink text-cafe-100 pt-14 pb-10">
+  <div class="mx-auto px-[var(--gutter)] grid grid-cols-2 md:grid-cols-4 gap-8" style="max-width:var(--max-w);">
+    <div>
+      <p class="font-display font-bold text-[22px] mb-1">Holic Haus cafe<span class="text-terra-300 italic">&amp;</span>garden</p>
+      <p class="text-[13px] text-cafe-ink3">โฮลิคเฮ้าส์ คาเฟ่แอนด์การ์เด้น</p>
+    </div>
+    <div>
+      <p class="eyebrow text-cafe-ink3 mb-2.5">Find us</p>
+      <p class="text-[14px] leading-relaxed">Srinagarindra Rd,<br/>Mueang Samut Prakan,<br/>Samut Prakan 10270</p>
+      <p class="text-[14px] mt-1.5"><a href="tel:+66641749462" class="hover:text-terra-300">064 174 9462</a></p>
+    </div>
+    <div>
+      <p class="eyebrow text-cafe-ink3 mb-2.5">Hours</p>
+      <p class="text-[14px] leading-relaxed">Tue – Sun · 8:30 — 17:00<br/>Mon · Closed</p>
+    </div>
+    <div>
+      <p class="eyebrow text-cafe-ink3 mb-2.5">Social</p>
+      <p class="text-[14px]">
+        <a href="https://www.facebook.com/holichaus/" target="_blank" rel="noopener" class="hover:text-terra-300">Facebook</a> ·
+        <a href="https://www.instagram.com/holichauscafeandgarden/" target="_blank" rel="noopener" class="hover:text-terra-300">Instagram</a>
+      </p>
+    </div>
+  </div>
+  <p class="text-center text-[12px] text-cafe-ink3 mt-10 pt-5 mx-auto px-[var(--gutter)]" style="max-width:var(--max-w);border-top:1px solid rgba(255,255,255,0.08);">© Holic Haus cafe&amp;garden.</p>
+</footer>
+
+<a class="sticky-cta" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Holic+Haus+cafe%26garden/@13.5958463,100.6090177,17z" data-cta="sticky-directions">
+  <span>Get directions</span><span aria-hidden="true">→</span>
+</a>
+
+<script>
+(function(){
+  'use strict';
+  var HOURS = { 0:{open:'08:30',close:'17:00'}, 1:null, 2:{open:'08:30',close:'17:00'}, 3:{open:'08:30',close:'17:00'}, 4:{open:'08:30',close:'17:00'}, 5:{open:'08:30',close:'17:00'}, 6:{open:'08:30',close:'17:00'} };
+  function nowInBangkok(){
+    var fmt = new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Bangkok',weekday:'short',hour12:false,hour:'2-digit',minute:'2-digit'});
+    var parts = fmt.formatToParts(new Date());
+    var wd = parts.find(function(p){return p.type==='weekday';}).value;
+    var hh = parts.find(function(p){return p.type==='hour';}).value;
+    var mm = parts.find(function(p){return p.type==='minute';}).value;
+    var dayMap = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+    return { day: dayMap[wd], time: hh+':'+mm };
+  }
+  function toMin(t){ var x=t.split(':'); return parseInt(x[0],10)*60 + parseInt(x[1],10); }
+  function nextOpen(d){
+    var names=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    for (var i=1;i<=7;i++){ var idx=(d+i)%7; if (HOURS[idx]) return (i===1?'tomorrow':names[idx])+' at '+HOURS[idx].open; }
+    return null;
+  }
+  function updateLive(){
+    var el = document.getElementById('liveStatus'); if (!el) return;
+    var n = nowInBangkok(); var today = HOURS[n.day]; var nm = toMin(n.time);
+    if (today && nm >= toMin(today.open) && nm < toMin(today.close)) {
+      el.textContent = 'Open now · closes at '+today.close; el.classList.add('is-open');
+    } else {
+      var nx = nextOpen(n.day);
+      el.textContent = nx ? 'Closed · opens '+nx : 'Closed today'; el.classList.add('is-closed');
+    }
+  }
+  function updateToday(){
+    var el = document.getElementById('todayHours'); if (!el) return;
+    var t = HOURS[nowInBangkok().day]; el.textContent = t ? (t.open+' — '+t.close) : 'Closed';
+  }
+  document.addEventListener('DOMContentLoaded', function(){
+    updateLive(); updateToday();
+    document.querySelectorAll('[data-cta]').forEach(function(n){
+      n.addEventListener('click', function(){ try { console.info('cta_click', n.dataset.cta); } catch(_){} }, {passive:true});
+    });
+  });
+})();
+</script>
+</body>
+</html>
