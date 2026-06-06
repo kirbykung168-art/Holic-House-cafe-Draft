@@ -12,3 +12,5 @@ open-fb.bat
 start-claude.bat
 push-to-github.bat
 commit-and-push.bat
+open-vercel.bat
+.vercel/
