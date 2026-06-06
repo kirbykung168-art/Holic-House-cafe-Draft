@@ -8,101 +8,147 @@
   <meta name="description" content="A small Samut Prakan coffee shop with a shaded outdoor garden, brunch menu, and a 4.6-star reputation. Open Tue-Sun, 8:30am-5pm. ฿1-200." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
+    // Palette retuned to match the cafe's brand:
+    // - Cream parchment (menu board background)
+    // - Botanical forest green (menu frame, primary structural)
+    // - Mustard gold (small accents)
+    // - Espresso brown (body text)
+    // - Terracotta (the building wall — CTA accent ONLY, used sparingly)
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            cafe:   { 50:'#fffaf2',100:'#faf6ef',200:'#f3ece0',300:'#e6dccb',400:'#d5c1a3', ink:'#1a1410', ink2:'#3b322b', ink3:'#6b5e54' },
-            terra:  { 50:'#fff5ef',100:'#fbd9c2',300:'#ea6b2a',500:'#c2410c',700:'#8a2a08',900:'#3d1604' },
-            garden: { 100:'#dde6ce',300:'#a3b87f',500:'#6d8a4f',700:'#3d5639',900:'#1f2a1e' },
+            // "cafe" = cream/paper system
+            cafe:   { 50:'#FAF3E1', 100:'#F2E6CE', 200:'#E8DDC8', 300:'#D4C7A8', 400:'#B8A57F',
+                      ink:'#3A2A1E', ink2:'#5A4232', ink3:'#8B7560' },
+            // "terra" = terracotta CTA accent (building wall)
+            terra:  { 50:'#FFF1E5', 100:'#F4D6BB', 300:'#D88557', 500:'#C57040', 700:'#A14E2F', 900:'#6B321A' },
+            // "garden" = botanical forest green (structural)
+            garden: { 100:'#DDE6CE', 300:'#93A87E', 500:'#5D7E5A', 700:'#2D4A36', 900:'#1F3328' },
+            // "gold" = mustard accent (badges, frame trim)
+            gold:   { 100:'#EFE0B0', 300:'#D4B86A', 500:'#B89A4A', 700:'#8A7330' },
           },
           fontFamily: {
-            display: ['"Fraunces"','Iowan Old Style','Georgia','serif'],
-            sans:    ['"Inter"','system-ui','-apple-system','sans-serif'],
+            display:  ['"Cormorant Garamond"','Fraunces','Iowan Old Style','Georgia','serif'],
+            displayB: ['"Fraunces"','Iowan Old Style','Georgia','serif'],
+            sans:     ['"Inter"','system-ui','-apple-system','sans-serif'],
           },
         },
       },
     };
   </script>
   <style>
-    :root { --gutter: clamp(20px,4vw,40px); --max-w: 72rem; }
+    :root { --gutter: clamp(20px,4vw,40px); --max-w: 72rem;
+      --cream-50:#FAF3E1; --cream-100:#F2E6CE; --cream-200:#E8DDC8; --cream-300:#D4C7A8;
+      --espresso:#3A2A1E; --espresso-2:#5A4232; --espresso-3:#8B7560;
+      --forest-900:#1F3328; --forest-700:#2D4A36; --forest-500:#5D7E5A;
+      --terra-500:#C57040; --terra-700:#A14E2F; --terra-100:#F4D6BB;
+      --gold-500:#B89A4A; --gold-300:#D4B86A; --gold-100:#EFE0B0;
+    }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    body { font-family:'Inter',system-ui,sans-serif; color:#1a1410; background:#fffaf2; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; line-height:1.7; }
-    h1,h2,h3,h4 { font-family:'Fraunces',Georgia,serif; line-height:1.05; letter-spacing:-0.03em; }
-    .display-tight { letter-spacing:-0.035em; line-height:1.02; }
-    .grain::before { content:''; position:absolute; inset:0; pointer-events:none; opacity:.22; mix-blend-mode:overlay;
-      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>"); }
+    body { font-family:'Inter',system-ui,sans-serif; color:var(--espresso); background:var(--cream-50); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; line-height:1.7; }
+    h1,h2,h3,h4 { font-family:'Cormorant Garamond','Fraunces',Georgia,serif; line-height:1.05; letter-spacing:-0.01em; color:var(--forest-700); font-weight:600; }
+    .display-tight { letter-spacing:-0.015em; line-height:1.02; }
+
+    /* Cream paper texture — subtle warm noise that echoes printed parchment */
+    .grain::before { content:''; position:absolute; inset:0; pointer-events:none; opacity:.20; mix-blend-mode:multiply;
+      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.80' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.27 0 0 0 0 0.17 0 0 0 0 0.08 0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>"); }
+    /* Horizontal "paper grain" stripe to mimic the menu board paper */
+    .paper-grain::after { content:''; position:absolute; inset:0; pointer-events:none; opacity:.12;
+      background-image:repeating-linear-gradient(0deg, rgba(58,42,30,0.08) 0 1px, transparent 1px 4px); mix-blend-mode:multiply; }
+
     .bg-warm-paper { background:
-      radial-gradient(1200px 600px at 0% -10%, rgba(234,107,42,0.10), transparent 60%),
-      radial-gradient(900px 700px at 100% 0%, rgba(109,138,79,0.10), transparent 55%),
-      radial-gradient(1200px 800px at 50% 100%, rgba(213,193,163,0.18), transparent 60%),
-      linear-gradient(180deg,#fffaf2 0%,#faf6ef 100%); }
+      radial-gradient(1200px 600px at 0% -10%, rgba(184,154,74,0.10), transparent 60%),
+      radial-gradient(900px 700px at 100% 0%, rgba(93,126,90,0.10), transparent 55%),
+      radial-gradient(1200px 800px at 50% 100%, rgba(212,199,168,0.22), transparent 60%),
+      linear-gradient(180deg,#FAF3E1 0%,#F2E6CE 100%); }
     .bg-deep-garden { background:
-      radial-gradient(800px 500px at 10% 0%, rgba(109,138,79,0.35), transparent 60%),
-      radial-gradient(700px 500px at 100% 100%, rgba(194,65,12,0.35), transparent 55%),
-      linear-gradient(135deg,#1f2a1e 0%,#2c3a2a 100%); }
-    .hero-img { filter:saturate(1.05) contrast(1.03); }
-    .hero-tint { background:linear-gradient(135deg, rgba(194,65,12,0.18), rgba(31,42,30,0.18)); mix-blend-mode:multiply; }
+      radial-gradient(900px 600px at 20% 0%, rgba(93,126,90,0.30), transparent 60%),
+      radial-gradient(700px 500px at 90% 100%, rgba(184,154,74,0.25), transparent 55%),
+      linear-gradient(165deg,#1F3328 0%,#2D4A36 60%,#1F3328 100%); }
+    .bg-cream-warm { background:linear-gradient(180deg, #FAF3E1 0%, #F2E6CE 100%); }
+
+    .hero-img { filter:saturate(0.92) contrast(1.04); }
+    /* Cream/forest scrim — less black, more brand */
+    .hero-tint { background:linear-gradient(135deg, rgba(45,74,54,0.20), rgba(58,42,30,0.18)); mix-blend-mode:multiply; }
     .hero-scrim { background:
-      linear-gradient(180deg, rgba(26,20,16,0.10) 0%, rgba(26,20,16,0.45) 55%, rgba(26,20,16,0.85) 100%),
-      linear-gradient(90deg, rgba(26,20,16,0.6) 0%, rgba(26,20,16,0) 60%); }
-    .btn { display:inline-flex; align-items:center; gap:10px; padding:14px 22px; border-radius:999px; font-weight:600; font-size:15px; text-decoration:none; cursor:pointer; border:0; white-space:nowrap;
+      linear-gradient(180deg, rgba(31,51,40,0.12) 0%, rgba(31,51,40,0.45) 50%, rgba(31,51,40,0.85) 100%),
+      linear-gradient(90deg, rgba(31,51,40,0.55) 0%, rgba(31,51,40,0) 65%); }
+
+    .btn { display:inline-flex; align-items:center; gap:10px; padding:14px 22px; border-radius:999px; font-weight:600; font-size:15px; text-decoration:none; cursor:pointer; border:0; white-space:nowrap; letter-spacing:.005em;
       transition: transform 200ms cubic-bezier(0.34,1.56,0.64,1), box-shadow 200ms ease, background-color 180ms ease, color 180ms ease, border-color 180ms ease; }
     .btn-lg { padding:18px 28px; font-size:16px; }
-    .btn-primary { background:#c2410c; color:#fff;
-      box-shadow: 0 1px 0 rgba(255,255,255,0.16) inset, 0 10px 22px -8px rgba(194,65,12,0.55), 0 2px 4px rgba(61,22,4,0.25); }
-    .btn-primary:hover { background:#8a2a08; transform:translateY(-1px); }
+    /* Primary = terracotta, used sparingly */
+    .btn-primary { background:var(--terra-500); color:#fff;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.18) inset, 0 10px 22px -8px rgba(161,78,47,0.45), 0 2px 4px rgba(107,50,26,0.22); }
+    .btn-primary:hover { background:var(--terra-700); transform:translateY(-1px); }
     .btn-primary:active { transform:translateY(0); }
-    .btn-primary:focus-visible { outline:2px solid #fbd9c2; outline-offset:3px; }
-    .btn-ghost { background:transparent; color:#1a1410; border:1.5px solid rgba(26,20,16,0.18); }
-    .btn-ghost:hover { background:rgba(26,20,16,0.04); border-color:rgba(26,20,16,0.32); transform:translateY(-1px); }
-    .btn-ghost:focus-visible { outline:2px solid #c2410c; outline-offset:3px; }
-    .btn-ghost-light { background:rgba(255,255,255,0.06); color:#fff; border:1.5px solid rgba(255,255,255,0.5); }
-    .btn-ghost-light:hover { background:rgba(255,255,255,0.14); border-color:#fff; transform:translateY(-1px); }
-    .btn-ghost-light:focus-visible { outline:2px solid #fff; outline-offset:3px; }
+    .btn-primary:focus-visible { outline:2px solid var(--gold-300); outline-offset:3px; }
+    .btn-ghost { background:transparent; color:var(--forest-700); border:1.5px solid rgba(45,74,54,0.30); }
+    .btn-ghost:hover { background:rgba(45,74,54,0.06); border-color:var(--forest-700); transform:translateY(-1px); }
+    .btn-ghost:focus-visible { outline:2px solid var(--terra-500); outline-offset:3px; }
+    .btn-ghost-light { background:rgba(250,243,225,0.10); color:#FAF3E1; border:1.5px solid rgba(250,243,225,0.55); }
+    .btn-ghost-light:hover { background:rgba(250,243,225,0.18); border-color:#FAF3E1; transform:translateY(-1px); }
+    .btn-ghost-light:focus-visible { outline:2px solid #FAF3E1; outline-offset:3px; }
     .btn .arrow { transition:transform 220ms cubic-bezier(0.34,1.56,0.64,1); }
     .btn:hover .arrow { transform:translateX(4px); }
-    a:focus-visible { outline:2px solid #c2410c; outline-offset:3px; border-radius:4px; }
-    .eyebrow { text-transform:uppercase; letter-spacing:0.18em; font-size:11px; font-weight:600; }
-    .menu-card { background:#fff; border:1px solid #e6dccb; border-radius:16px; padding:22px 22px 20px;
-      box-shadow: 0 1px 1px rgba(26,20,16,0.04), 0 6px 18px -8px rgba(138,42,8,0.14);
+    a:focus-visible { outline:2px solid var(--terra-500); outline-offset:3px; border-radius:4px; }
+
+    .eyebrow { text-transform:uppercase; letter-spacing:0.22em; font-size:11px; font-weight:600; }
+
+    /* Menu cards — cream with forest titles and gold price chip */
+    .menu-card { background:var(--cream-50); border:1px solid var(--cream-300); border-radius:14px; padding:22px 22px 20px;
+      box-shadow: 0 1px 1px rgba(45,74,54,0.04), 0 6px 18px -10px rgba(45,74,54,0.20);
       transition: transform 220ms cubic-bezier(0.34,1.56,0.64,1), box-shadow 220ms ease, border-color 220ms ease; position:relative; }
-    .menu-card:hover { transform:translateY(-3px); box-shadow:0 2px 4px rgba(26,20,16,0.06), 0 20px 36px -16px rgba(138,42,8,0.28); border-color:#fbd9c2; }
-    .menu-card--star { background:linear-gradient(180deg,#fff 0%,#fff5ef 100%); border-color:#fbd9c2; }
-    .tile { position:relative; overflow:hidden; border-radius:16px; background:#e6dccb; }
+    .menu-card:hover { transform:translateY(-3px); box-shadow:0 2px 4px rgba(45,74,54,0.06), 0 22px 38px -18px rgba(45,74,54,0.32); border-color:var(--gold-500); }
+    .menu-card h3 { color:var(--forest-700); font-family:'Cormorant Garamond','Fraunces',Georgia,serif; }
+    .menu-card .menu-price { display:inline-block; font-family:'Inter',sans-serif; font-weight:700; color:var(--espresso);
+      background:var(--gold-100); border:1px solid var(--gold-500); border-radius:999px; padding:2px 12px; font-size:14px; letter-spacing:.02em; }
+    .menu-card--star { background:linear-gradient(180deg,#FAF3E1 0%,#EFE0B0 100%); border-color:var(--gold-500); }
+    .menu-card--star h3 { color:var(--forest-900); }
+
+    /* Botanical double-line frame for the Bread & Brunch section — mirrors the printed menu */
+    .menu-frame { position:relative; padding:clamp(28px,4vw,52px) clamp(20px,3.5vw,40px); border:1.5px solid var(--forest-700); border-radius:6px; background:rgba(250,243,225,0.55); }
+    .menu-frame::before { content:''; position:absolute; inset:6px; border:0.75px solid var(--forest-700); border-radius:3px; pointer-events:none; }
+    .menu-frame__title { font-family:'Cormorant Garamond','Fraunces',Georgia,serif; font-weight:700; letter-spacing:.06em; color:var(--forest-700); }
+    .menu-frame__sub { display:inline-block; font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--gold-700); border-top:1px solid var(--gold-500); border-bottom:1px solid var(--gold-500); padding:2px 10px; font-size:13px; letter-spacing:.18em; text-transform:uppercase; }
+
+    .tile { position:relative; overflow:hidden; border-radius:12px; background:var(--cream-200); }
     .tile img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 600ms ease; }
     .tile:hover img { transform:scale(1.04); }
-    .tile-tint { position:absolute; inset:0; background:linear-gradient(180deg,transparent 40%, rgba(26,20,16,0.45) 100%); mix-blend-mode:multiply; pointer-events:none; }
-    .tile-cap { position:absolute; left:14px; bottom:12px; background:rgba(26,20,16,0.7); color:#fff; padding:6px 10px; border-radius:6px; font-size:12px; backdrop-filter:blur(4px); }
-    .tile-fallback-1 { background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), transparent 40%), linear-gradient(135deg,#4a2d1c 0%,#c2410c 60%,#ea6b2a 100%); }
-    .tile-fallback-2 { background: radial-gradient(circle at 60% 40%, rgba(255,255,255,.25), transparent 50%), linear-gradient(135deg,#d6a474 0%,#b07a4a 100%); }
-    .tile-fallback-3 { background: radial-gradient(circle at 20% 70%, rgba(255,255,255,.2), transparent 50%), linear-gradient(135deg,#1f2a1e 0%,#3d5639 50%,#6d8a4f 100%); }
-    .tile-fallback-4 { background: repeating-linear-gradient(90deg, rgba(0,0,0,.06) 0 2px, transparent 2px 22px), linear-gradient(135deg,#c2410c 0%,#6b2410 100%); }
+    .tile-tint { position:absolute; inset:0; background:linear-gradient(180deg,transparent 45%, rgba(31,51,40,0.55) 100%); mix-blend-mode:multiply; pointer-events:none; }
+    .tile-cap { position:absolute; left:14px; bottom:12px; background:rgba(31,51,40,0.78); color:#FAF3E1; padding:6px 10px; border-radius:6px; font-size:12px; backdrop-filter:blur(4px); font-family:'Cormorant Garamond',serif; letter-spacing:.04em; }
+    .tile-fallback-1 { background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.30), transparent 40%), linear-gradient(135deg,#6B321A 0%,#A14E2F 60%,#C57040 100%); }
+    .tile-fallback-2 { background: radial-gradient(circle at 60% 40%, rgba(255,255,255,.25), transparent 50%), linear-gradient(135deg,#D4B86A 0%,#B89A4A 100%); }
+    .tile-fallback-3 { background: radial-gradient(circle at 20% 70%, rgba(255,255,255,.18), transparent 50%), linear-gradient(135deg,#1F3328 0%,#2D4A36 50%,#5D7E5A 100%); }
+    .tile-fallback-4 { background: repeating-linear-gradient(90deg, rgba(0,0,0,.06) 0 2px, transparent 2px 22px), linear-gradient(135deg,#A14E2F 0%,#6B321A 100%); }
+
     .status-dot::before { content:''; width:8px; height:8px; border-radius:50%; background:#a59a8e; box-shadow:0 0 0 4px rgba(165,154,142,.25); display:inline-block; margin-right:8px; vertical-align:1px; }
-    .status-dot.is-open::before { background:#6cd06c; box-shadow:0 0 0 4px rgba(108,208,108,.25); }
-    .status-dot.is-closed::before { background:#f08a8a; box-shadow:0 0 0 4px rgba(240,138,138,.25); }
-    .sticky-cta { position:fixed; left:16px; right:16px; bottom:16px; z-index:80; display:none; align-items:center; justify-content:space-between; padding:14px 22px; background:#c2410c; color:#fff; border-radius:999px; text-decoration:none; font-weight:600; box-shadow:0 10px 30px rgba(194,65,12,0.45); }
+    .status-dot.is-open::before { background:#7CB67C; box-shadow:0 0 0 4px rgba(124,182,124,.30); }
+    .status-dot.is-closed::before { background:#E89A6B; box-shadow:0 0 0 4px rgba(232,154,107,.25); }
+
+    .sticky-cta { position:fixed; left:16px; right:16px; bottom:16px; z-index:80; display:none; align-items:center; justify-content:space-between; padding:14px 22px; background:var(--terra-500); color:#FAF3E1; border-radius:999px; text-decoration:none; font-weight:600; box-shadow:0 10px 30px rgba(161,78,47,0.40); }
     @media (max-width: 720px) { .sticky-cta { display:flex; } body { padding-bottom:80px; } }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration:0.01ms !important; animation:none !important; } html { scroll-behavior:auto; } .tile:hover img { transform:none; } }
   </style>
 </head>
 <body class="bg-cafe-50 text-cafe-ink antialiased">
 
-<header class="sticky top-0 z-50 backdrop-blur-md bg-cafe-50/80 border-b border-cafe-ink/5">
+<header class="sticky top-0 z-50 backdrop-blur-md" style="background:rgba(250,243,225,0.86); border-bottom:1px solid rgba(45,74,54,0.10);">
   <div class="mx-auto flex items-center gap-6 px-[var(--gutter)] py-3.5" style="max-width:var(--max-w);">
-    <a href="#top" class="flex items-center gap-2.5 no-underline text-cafe-ink">
-      <span class="grid place-items-center w-8 h-8 rounded-lg bg-terra-500 text-white font-display font-bold text-sm">HH</span>
-      <span class="font-display font-bold text-lg leading-none">Holic Haus</span>
+    <a href="#top" class="flex items-center gap-2.5 no-underline" style="color:var(--forest-700);">
+      <span class="grid place-items-center w-9 h-9 rounded-md font-display font-bold text-sm" style="background:var(--forest-700); color:var(--cream-50); border:1px solid var(--gold-500); letter-spacing:.04em;">HH</span>
+      <span class="font-display font-bold text-lg leading-none" style="letter-spacing:.02em;">Holic Haus</span>
     </a>
-    <nav class="ml-auto hidden md:flex gap-6 text-[15px] text-cafe-ink2" aria-label="Sections">
-      <a href="#menu" class="hover:text-terra-500 no-underline">Drinks</a>
-      <a href="#brunch" class="hover:text-terra-500 no-underline">Brunch</a>
-      <a href="#visit" class="hover:text-terra-500 no-underline">Visit</a>
-      <a href="#gallery" class="hover:text-terra-500 no-underline">Gallery</a>
-      <a href="#reviews" class="hover:text-terra-500 no-underline">Reviews</a>
+    <nav class="ml-auto hidden md:flex gap-6 text-[15px]" style="color:var(--forest-700);" aria-label="Sections">
+      <a href="#menu" class="hover:text-terra-700 no-underline">Drinks</a>
+      <a href="#brunch" class="hover:text-terra-700 no-underline">Brunch</a>
+      <a href="#visit" class="hover:text-terra-700 no-underline">Visit</a>
+      <a href="#gallery" class="hover:text-terra-700 no-underline">Gallery</a>
+      <a href="#reviews" class="hover:text-terra-700 no-underline">Reviews</a>
     </nav>
     <a class="btn btn-primary md:ml-0 ml-auto" style="padding:10px 16px;font-size:14px;" href="#visit" data-cta="nav-directions">
       <span class="hidden sm:inline">Get directions</span><span class="sm:hidden">Directions</span>
@@ -120,9 +166,9 @@
     <div class="absolute inset-0 hero-scrim"></div>
   </div>
   <div class="relative mx-auto w-full px-[var(--gutter)] pt-28 pb-20 text-white" style="max-width:var(--max-w);">
-    <p class="eyebrow text-terra-100 mb-4">Samut Prakan · Srinagarindra Rd</p>
-    <h1 class="display-tight font-display font-medium mb-5" style="font-size:clamp(44px,7.5vw,88px);">
-      A shaded garden,<br/><em class="not-italic font-display font-medium italic text-terra-100">slow coffee.</em>
+    <p class="eyebrow mb-4" style="color:var(--gold-300);">Samut Prakan · Srinagarindra Rd</p>
+    <h1 class="display-tight font-display mb-5" style="font-size:clamp(44px,7.5vw,88px); color:var(--cream-50); font-weight:600;">
+      A shaded garden,<br/><em class="not-italic italic" style="font-family:'Cormorant Garamond',serif; color:var(--gold-300); font-weight:500;">slow coffee.</em>
     </h1>
     <p class="max-w-xl leading-relaxed text-white/85 mb-7" style="font-size:clamp(16px,1.5vw,19px);">
       A small neighbourhood cafe tucked off Srinagarindra Road. Brunch, bakery, and a leafy back garden built for sitting still.
@@ -152,72 +198,73 @@
   </div>
 </section>
 
-<section class="bg-cafe-ink text-cafe-100" aria-label="At a glance">
+<section class="bg-garden-700 text-cafe-50 border-t-4 border-b border-gold-500/40" style="border-top-color:var(--gold-500);" aria-label="At a glance">
   <ul class="mx-auto grid grid-cols-2 md:grid-cols-4 gap-x-7 gap-y-2 px-[var(--gutter)] py-6 list-none" style="max-width:var(--max-w);">
-    <li class="flex flex-col gap-1"><span class="eyebrow text-cafe-ink3">Open today</span><span id="todayHours" class="font-medium text-[15px]">8:30 — 17:00</span></li>
-    <li class="flex flex-col gap-1"><span class="eyebrow text-cafe-ink3">Price</span><span class="font-medium text-[15px]">฿1 – 200</span></li>
-    <li class="flex flex-col gap-1"><span class="eyebrow text-cafe-ink3">Good for</span><span class="font-medium text-[15px]">Brunch · Wi-Fi · Outdoor</span></li>
-    <li class="flex flex-col gap-1"><span class="eyebrow text-cafe-ink3">Options</span><span class="font-medium text-[15px]">Dine-in · Pickup · Delivery</span></li>
+    <li class="flex flex-col gap-1"><span class="eyebrow" style="color:var(--gold-300);">Open today</span><span id="todayHours" class="font-medium text-[15px]">8:30 — 17:00</span></li>
+    <li class="flex flex-col gap-1"><span class="eyebrow" style="color:var(--gold-300);">Price</span><span class="font-medium text-[15px]">฿1 – 200</span></li>
+    <li class="flex flex-col gap-1"><span class="eyebrow" style="color:var(--gold-300);">Good for</span><span class="font-medium text-[15px]">Brunch · Wi-Fi · Outdoor</span></li>
+    <li class="flex flex-col gap-1"><span class="eyebrow" style="color:var(--gold-300);">Options</span><span class="font-medium text-[15px]">Dine-in · Pickup · Delivery</span></li>
   </ul>
 </section>
 
 <section id="menu" class="bg-warm-paper relative grain">
   <div class="mx-auto px-[var(--gutter)] py-20" style="max-width:var(--max-w);">
     <div class="max-w-2xl mb-12">
-      <p class="eyebrow text-terra-500 mb-4">Menu highlights</p>
+      <p class="eyebrow text-garden-700 mb-4">Menu highlights</p>
       <h2 class="font-display font-medium display-tight mb-3" style="font-size:clamp(32px,4.4vw,52px);">Coffee made to order.<br/>Say how you like it.</h2>
       <p class="text-cafe-ink2 text-[17px] leading-relaxed">A small bar built on medium- and dark-roast beans (special beans on request), an exclusive house tea pot, fresh-juice mixers, and a daily bakery case. Most regulars come back for the iced espresso and the orange coffee.</p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Iced Espresso</h3><span class="font-semibold text-terra-500">฿55</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">Espresso served over ice on the side. Rich and balanced — a regular weekday order.</p></article>
+      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Iced Espresso</h3><span class="menu-price">฿55</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">Espresso served over ice on the side. Rich and balanced — a regular weekday order.</p></article>
 
-      <article class="menu-card menu-card--star"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Holic Hot Tea Pot <span class="ml-1 inline-block align-middle text-[10px] font-semibold uppercase tracking-widest bg-terra-500 text-white px-2 py-0.5 rounded-full">Signature</span></h3><span class="font-semibold text-terra-500">฿60</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">The house tea pot — exclusive to Holic. Chamomile and other blends on request. Not bitter, just right.</p></article>
+      <article class="menu-card menu-card--star"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Holic Hot Tea Pot <span class="ml-1 inline-block align-middle text-[10px] font-semibold uppercase tracking-widest bg-terra-500 text-white px-2 py-0.5 rounded-full">Signature</span></h3><span class="menu-price">฿60</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">The house tea pot — exclusive to Holic. Chamomile and other blends on request. Not bitter, just right.</p></article>
 
-      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Orange Coffee</h3><span class="font-semibold text-terra-500">฿70</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">Fresh-squeezed orange juice with no added sugar over coffee. Citrus-bright. A reason people come back.</p></article>
+      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Orange Coffee</h3><span class="menu-price">฿70</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">Fresh-squeezed orange juice with no added sugar over coffee. Citrus-bright. A reason people come back.</p></article>
 
-      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Iced Ceylon Tea</h3><span class="font-semibold text-terra-500">฿55</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">Fragrant Ceylon, steeped strong, just enough sweetness. The afternoon order.</p></article>
+      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Iced Ceylon Tea</h3><span class="menu-price">฿55</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">Fragrant Ceylon, steeped strong, just enough sweetness. The afternoon order.</p></article>
 
-      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Iced Americano</h3><span class="font-semibold text-terra-500">฿55</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">Medium-roast house blend, long-pulled. Clean, unsweetened. The everyday order.</p></article>
+      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Iced Americano</h3><span class="menu-price">฿55</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">Medium-roast house blend, long-pulled. Clean, unsweetened. The everyday order.</p></article>
 
-      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Chocolate Cake <span class="ml-1 inline-block align-middle text-[10px] font-semibold uppercase tracking-widest bg-garden-500 text-white px-2 py-0.5 rounded-full">Bakery</span></h3><span class="font-semibold text-terra-500">฿75</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">Dense, fragrant, melts on the tongue. Pair with the Holic Tea Pot.</p></article>
+      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Chocolate Cake <span class="ml-1 inline-block align-middle text-[10px] font-semibold uppercase tracking-widest bg-garden-500 text-white px-2 py-0.5 rounded-full">Bakery</span></h3><span class="menu-price">฿75</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">Dense, fragrant, melts on the tongue. Pair with the Holic Tea Pot.</p></article>
     </div>
-    <p class="text-center text-[13px] text-cafe-ink3 mt-7">Cash &amp; mobile pay welcome · Beans: medium / dark roast / special on request · Full menu in store. <a class="hover:text-terra-500" href="https://www.wongnai.com/restaurants/628930sj" target="_blank" rel="noopener">Live prices on Wongnai →</a></p>
+    <p class="text-center text-[13px] text-cafe-ink3 mt-7">Cash &amp; mobile pay welcome · Beans: medium / dark roast / special on request · Full menu in store. <a class="hover:text-terra-700" href="https://www.wongnai.com/restaurants/628930sj" target="_blank" rel="noopener">Live prices on Wongnai →</a></p>
   </div>
 </section>
 
 <!-- BREAD & BRUNCH (all-day) -->
-<section id="brunch" class="bg-cafe-50 relative grain">
+<section id="brunch" class="bg-cream-warm relative paper-grain">
   <div class="mx-auto px-[var(--gutter)] py-20" style="max-width:var(--max-w);">
-    <div class="max-w-2xl mb-12">
-      <p class="eyebrow text-terra-500 mb-4">Bread &amp; Brunch · All day</p>
-      <h2 class="font-display font-medium display-tight mb-3" style="font-size:clamp(32px,4.4vw,52px);">Toasts, croissants,<br/>and a proper breakfast set.</h2>
-      <p class="text-cafe-ink2 text-[17px] leading-relaxed">A bakery case run all day — laminated pastries, eggs cooked to order, shokupan in four directions, and bagels with the lot. Pair anything with the Holic Tea Pot.</p>
-    </div>
+    <div class="menu-frame">
+      <div class="text-center mb-10">
+        <p class="menu-frame__sub mb-4">All Day</p>
+        <h2 class="menu-frame__title display-tight" style="font-size:clamp(36px,5.4vw,64px); margin:0;">Bread &amp; Brunch</h2>
+        <p class="text-[17px] leading-relaxed mt-4 max-w-2xl mx-auto" style="color:var(--espresso-2);">A bakery case run all day — laminated pastries, eggs cooked to order, shokupan in four directions, and bagels with the lot. Pair anything with the Holic Tea Pot.</p>
+      </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      <article class="menu-card menu-card--star"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Breakfast Set <span class="ml-1 inline-block align-middle text-[10px] font-semibold uppercase tracking-widest bg-terra-500 text-white px-2 py-0.5 rounded-full">Guest pick</span></h3><span class="font-semibold text-terra-500">฿175</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">ชุดอาหารเช้า · Eggs, toast, sausage, and the garnishes. The whole-plate order.</p></article>
+      <article class="menu-card menu-card--star"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Breakfast Set <span class="ml-1 inline-block align-middle text-[10px] font-semibold uppercase tracking-widest bg-terra-500 text-white px-2 py-0.5 rounded-full">Guest pick</span></h3><span class="menu-price">฿175</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">ชุดอาหารเช้า · Eggs, toast, sausage, and the garnishes. The whole-plate order.</p></article>
 
-      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Eggs Pan with Toppings</h3><span class="font-semibold text-terra-500">฿95</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">ไข่กระทะ · Eggs cooked in a hot pan with house toppings. Sizzling, served right.</p></article>
+      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Eggs Pan with Toppings</h3><span class="menu-price">฿95</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">ไข่กระทะ · Eggs cooked in a hot pan with house toppings. Sizzling, served right.</p></article>
 
-      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Ham Cheese Truffle</h3><span class="font-semibold text-terra-500">฿85</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">ขนมปังแฮมชีสทรัฟเฟิล · Toasted ham &amp; cheese, finished with truffle. A small splurge.</p></article>
+      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Ham Cheese Truffle</h3><span class="menu-price">฿85</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">ขนมปังแฮมชีสทรัฟเฟิล · Toasted ham &amp; cheese, finished with truffle. A small splurge.</p></article>
 
-      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Spinach Mushroom Grilled Cheese</h3><span class="font-semibold text-terra-500">฿95</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">ขนมปังกริลด์ชีสผักโขมเห็ด · Sautéed mushrooms, spinach, and melted cheese on grilled bread.</p></article>
+      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Spinach Mushroom Grilled Cheese</h3><span class="menu-price">฿95</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">ขนมปังกริลด์ชีสผักโขมเห็ด · Sautéed mushrooms, spinach, and melted cheese on grilled bread.</p></article>
 
-      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Bacon Eggs Toast</h3><span class="font-semibold text-terra-500">฿95</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">เบคอนไข่โทสต์ · Crisp bacon, soft eggs, toasted shokupan. The classic order.</p></article>
+      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Bacon Eggs Toast</h3><span class="menu-price">฿95</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">เบคอนไข่โทสต์ · Crisp bacon, soft eggs, toasted shokupan. The classic order.</p></article>
 
-      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Spinach Ham Cheese Mushroom Toast</h3><span class="font-semibold text-terra-500">฿110</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">ผักโขม แฮม ชีส เห็ด โทสต์ · The everything toast. Goes well with a hot tea pot.</p></article>
+      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Spinach Ham Cheese Mushroom Toast</h3><span class="menu-price">฿110</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">ผักโขม แฮม ชีส เห็ด โทสต์ · The everything toast. Goes well with a hot tea pot.</p></article>
 
-      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Croissant</h3><span class="font-semibold text-terra-500">฿75</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">คร็องซองต์ · Laminated, butter-fragrant, baked daily.</p></article>
+      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Croissant</h3><span class="menu-price">฿75</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">คร็องซองต์ · Laminated, butter-fragrant, baked daily.</p></article>
 
-      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Egg Bacon Croissant</h3><span class="font-semibold text-terra-500">฿120</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">ครัวซองต์ไข่เบคอน · The all-in-one breakfast in pastry form.</p></article>
+      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Egg Bacon Croissant</h3><span class="menu-price">฿120</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">ครัวซองต์ไข่เบคอน · The all-in-one breakfast in pastry form.</p></article>
 
-      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Bacon &amp; Egg Bagel</h3><span class="font-semibold text-terra-500">฿115</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">เบเกิลเบคอนไข่ · House bagel split, layered, and toasted.</p></article>
+      <article class="menu-card"><div class="flex justify-between items-baseline gap-3"><h3 class="font-display font-medium text-[22px]">Bacon &amp; Egg Bagel</h3><span class="menu-price">฿115</span></div><p class="mt-2.5 text-[15px] text-cafe-ink2">เบเกิลเบคอนไข่ · House bagel split, layered, and toasted.</p></article>
     </div>
 
     <details class="mt-8 mx-auto max-w-3xl bg-white border border-cafe-300 rounded-2xl overflow-hidden" style="box-shadow:0 1px 1px rgba(26,20,16,0.04), 0 6px 18px -8px rgba(138,42,8,0.14);">
       <summary class="cursor-pointer list-none px-6 py-4 font-medium text-[15px] flex items-center justify-between hover:bg-terra-50">
         <span>See the full bread &amp; bagel list (16 items)</span>
-        <span class="text-terra-500 text-xl leading-none" aria-hidden="true">+</span>
+        <span class="text-xl leading-none" style="color:var(--gold-700);" aria-hidden="true">+</span>
       </summary>
       <div class="px-6 pb-6 pt-2 text-[14px] text-cafe-ink2 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5">
         <div class="flex justify-between"><span>Croffle · ครอฟเฟิล</span><span class="tabular-nums text-cafe-ink3">฿75</span></div>
@@ -251,20 +298,21 @@
         <figcaption class="tile-cap">Brunch menu · April 2026</figcaption>
       </a>
     </div>
-    <p class="text-center text-[13px] text-cafe-ink3 mt-5">Menu boards via the cafe's <a class="hover:text-terra-500" href="https://www.facebook.com/holichaus/" target="_blank" rel="noopener">Facebook page</a> · Specials change weekly.</p>
+    <p class="text-center text-[13px] mt-6" style="color:var(--espresso-3);">Menu boards via the cafe's <a class="hover:text-terra-700" style="color:var(--forest-700);" href="https://www.facebook.com/holichaus/" target="_blank" rel="noopener">Facebook page</a> · Specials change weekly.</p>
+    </div><!-- /menu-frame -->
   </div>
 </section>
 
 <section id="visit" class="bg-cafe-100 relative grain">
   <div class="mx-auto px-[var(--gutter)] py-20 grid lg:grid-cols-2 gap-10 lg:gap-14 items-start" style="max-width:var(--max-w);">
     <div>
-      <p class="eyebrow text-terra-500 mb-4">Visit us</p>
+      <p class="eyebrow text-garden-700 mb-4">Visit us</p>
       <h2 class="font-display font-medium display-tight mb-4" style="font-size:clamp(28px,4vw,44px);">Tucked off Srinagarindra,<br/>across from iMall.</h2>
       <p class="text-cafe-ink2 text-[17px] leading-relaxed mb-7 max-w-lg">Easiest by car or motorbike along Srinagarindra Road. Look for the orange container wall behind a row of green.</p>
       <dl class="grid gap-6 mb-7">
         <div><dt class="eyebrow text-cafe-ink3 mb-1">Address</dt><dd class="text-[16px]">17 Thanon Srinagarindra,<br/>Amphoe Mueang Samut Prakan,<br/>Samut Prakan 10270, Thailand</dd></div>
-        <div><dt class="eyebrow text-cafe-ink3 mb-1">Phone</dt><dd class="text-[16px]"><a class="hover:text-terra-500" href="tel:+66641749462">064 174 9462</a></dd></div>
-        <div><dt class="eyebrow text-cafe-ink3 mb-1">Email</dt><dd class="text-[16px]"><a class="hover:text-terra-500" href="mailto:holichaus.cafe@gmail.com">holichaus.cafe@gmail.com</a></dd></div>
+        <div><dt class="eyebrow text-cafe-ink3 mb-1">Phone</dt><dd class="text-[16px]"><a class="hover:text-terra-700" href="tel:+66641749462">064 174 9462</a></dd></div>
+        <div><dt class="eyebrow text-cafe-ink3 mb-1">Email</dt><dd class="text-[16px]"><a class="hover:text-terra-700" href="mailto:holichaus.cafe@gmail.com">holichaus.cafe@gmail.com</a></dd></div>
         <div><dt class="eyebrow text-cafe-ink3 mb-2">Hours</dt><dd>
           <table class="text-[14px]"><tbody>
             <tr><th class="text-left font-medium text-cafe-ink2 pr-6 pb-1 w-14">Mon</th><td class="text-cafe-ink3 pb-1">Closed</td></tr>
@@ -291,7 +339,7 @@
 <section id="gallery" class="bg-warm-paper relative grain">
   <div class="mx-auto px-[var(--gutter)] py-20" style="max-width:var(--max-w);">
     <div class="max-w-2xl mb-12">
-      <p class="eyebrow text-terra-500 mb-4">In the garden</p>
+      <p class="eyebrow text-garden-700 mb-4">In the garden</p>
       <h2 class="font-display font-medium display-tight" style="font-size:clamp(32px,4.4vw,52px);">The room you came for.</h2>
     </div>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-3" style="grid-auto-rows:180px;">
@@ -336,29 +384,29 @@
         <figcaption class="tile-cap">Recent visit</figcaption>
       </figure>
     </div>
-    <p class="text-center text-[13px] text-cafe-ink3 mt-5">Photos via <a class="hover:text-terra-500" href="https://www.wongnai.com/restaurants/628930sj" target="_blank" rel="noopener">Wongnai</a> &amp; <a class="hover:text-terra-500" href="https://www.google.com/maps/place/Holic+Haus+cafe%26garden/@13.5958463,100.6090177,17z" target="_blank" rel="noopener">Google Maps listing</a> · See more on <a class="hover:text-terra-500" href="https://www.facebook.com/holichaus/" target="_blank" rel="noopener">Facebook</a></p>
+    <p class="text-center text-[13px] text-cafe-ink3 mt-5">Photos via <a class="hover:text-terra-700" href="https://www.wongnai.com/restaurants/628930sj" target="_blank" rel="noopener">Wongnai</a> &amp; <a class="hover:text-terra-700" href="https://www.google.com/maps/place/Holic+Haus+cafe%26garden/@13.5958463,100.6090177,17z" target="_blank" rel="noopener">Google Maps listing</a> · See more on <a class="hover:text-terra-700" href="https://www.facebook.com/holichaus/" target="_blank" rel="noopener">Facebook</a></p>
   </div>
 </section>
 
 <section id="reviews" class="bg-cafe-100 relative grain">
   <div class="mx-auto px-[var(--gutter)] py-20" style="max-width:var(--max-w);">
     <div class="max-w-2xl mb-12">
-      <p class="eyebrow text-terra-500 mb-4">What guests say</p>
+      <p class="eyebrow text-garden-700 mb-4">What guests say</p>
       <h2 class="font-display font-medium display-tight" style="font-size:clamp(32px,4.4vw,52px);">4.6 stars, 98 reviews.</h2>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       <blockquote class="relative bg-white border border-cafe-300 rounded-2xl p-6" style="box-shadow:0 1px 1px rgba(26,20,16,0.04), 0 6px 18px -8px rgba(138,42,8,0.18);">
-        <span class="absolute top-1 left-4 text-terra-100 font-display text-6xl leading-none">"</span>
+        <span class="absolute top-1 left-4 font-display text-6xl leading-none" style="color:var(--gold-500); opacity:.55;">"</span>
         <p class="font-display font-medium text-[19px] leading-snug mb-4 relative">The atmosphere is very nice, feeling warm and comfortable. There's a lot of greenery in the outdoor area, making it shady and pleasant. Highly recommended.</p>
         <footer class="text-[13px] text-cafe-ink3">— Panchanita S., <cite class="not-italic text-cafe-ink2">Local Guide</cite></footer>
       </blockquote>
       <blockquote class="relative bg-white border border-cafe-300 rounded-2xl p-6" style="box-shadow:0 1px 1px rgba(26,20,16,0.04), 0 6px 18px -8px rgba(138,42,8,0.18);">
-        <span class="absolute top-1 left-4 text-terra-100 font-display text-6xl leading-none">"</span>
+        <span class="absolute top-1 left-4 font-display text-6xl leading-none" style="color:var(--gold-500); opacity:.55;">"</span>
         <p class="font-display font-medium text-[19px] leading-snug mb-4 relative">Very nice little coffee shop with a decent brunch menu. Has outdoor seating in a nice little nature cove. Service is good.</p>
         <footer class="text-[13px] text-cafe-ink3">— Ben R., <cite class="not-italic text-cafe-ink2">Local Guide</cite></footer>
       </blockquote>
       <blockquote class="relative bg-white border border-cafe-300 rounded-2xl p-6" style="box-shadow:0 1px 1px rgba(26,20,16,0.04), 0 6px 18px -8px rgba(138,42,8,0.18);">
-        <span class="absolute top-1 left-4 text-terra-100 font-display text-6xl leading-none">"</span>
+        <span class="absolute top-1 left-4 font-display text-6xl leading-none" style="color:var(--gold-500); opacity:.55;">"</span>
         <p class="font-display font-medium text-[19px] leading-snug mb-4 relative">Nice place and vibe! Love the staff too. Best to work, best to chill. Love the coffee and the croissant.</p>
         <footer class="text-[13px] text-cafe-ink3">— Janene G., <cite class="not-italic text-cafe-ink2">Local Guide</cite></footer>
       </blockquote>
@@ -368,8 +416,8 @@
 
 <section class="bg-deep-garden text-white relative grain">
   <div class="mx-auto px-[var(--gutter)] py-20 text-center" style="max-width:var(--max-w);">
-    <h2 class="font-display font-medium display-tight mb-4" style="font-size:clamp(32px,5vw,56px);">We're open <em class="not-italic italic text-terra-100">tomorrow</em> from 8:30.</h2>
-    <p class="text-white/80 mb-8 max-w-xl mx-auto">The orange coffee won't make itself. Save the route while you remember.</p>
+    <h2 class="font-display font-medium display-tight mb-4" style="font-size:clamp(32px,5vw,56px); color:var(--cream-50);">We're open <em class="not-italic italic" style="color:var(--gold-300);">tomorrow</em> from 8:30.</h2>
+    <p class="mb-8 max-w-xl mx-auto" style="color:var(--cream-100); opacity:.86;">The orange coffee won't make itself. Save the route while you remember.</p>
     <div class="flex flex-wrap justify-center gap-3">
       <a class="btn btn-primary btn-lg" target="_blank" rel="noopener" href="https://www.google.com/maps/place/Holic+Haus+cafe%26garden/@13.5958463,100.6090177,17z" data-cta="final-directions"><span>Get directions</span><span class="arrow" aria-hidden="true">→</span></a>
       <a class="btn btn-ghost-light btn-lg" target="_blank" rel="noopener" href="https://www.facebook.com/holichaus/" data-cta="final-fb">Follow on Facebook</a>
@@ -379,11 +427,11 @@
 
 </main>
 
-<footer class="bg-cafe-ink text-cafe-100 pt-14 pb-10">
+<footer class="bg-garden-900 text-cafe-50 pt-14 pb-10 border-t-2" style="border-top-color:var(--gold-500);">
   <div class="mx-auto px-[var(--gutter)] grid grid-cols-2 md:grid-cols-4 gap-8" style="max-width:var(--max-w);">
     <div>
-      <p class="font-display font-bold text-[22px] mb-1">Holic Haus cafe<span class="text-terra-300 italic">&amp;</span>garden</p>
-      <p class="text-[13px] text-cafe-ink3">โฮลิคเฮ้าส์ คาเฟ่แอนด์การ์เด้น</p>
+      <p class="font-display font-bold text-[24px] mb-1" style="color:var(--cream-50); letter-spacing:.01em;">Holic Haus cafe<span class="italic" style="color:var(--gold-300);">&amp;</span>garden</p>
+      <p class="text-[13px]" style="color:var(--gold-100);">โฮลิคเฮ้าส์ คาเฟ่แอนด์การ์เด้น</p>
     </div>
     <div>
       <p class="eyebrow text-cafe-ink3 mb-2.5">Find us</p>
