@@ -89,7 +89,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Sarabun:wght@400;500;600;700&family=Noto+Serif+Thai:wght@500;600;700&display=swap" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     // Palette retuned to match the cafe's brand:
@@ -130,8 +130,10 @@
       --gold-500:#B89A4A; --gold-300:#D4B86A; --gold-100:#EFE0B0;
     }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    body { font-family:'Inter',system-ui,sans-serif; color:var(--espresso); background:var(--cream-50); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; line-height:1.7; }
-    h1,h2,h3,h4 { font-family:'Cormorant Garamond','Fraunces',Georgia,serif; line-height:1.05; letter-spacing:-0.01em; color:var(--forest-700); font-weight:600; }
+    body { font-family:'Inter','Sarabun','Noto Sans Thai',system-ui,sans-serif; color:var(--espresso); background:var(--cream-50); -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; line-height:1.7; }
+    h1,h2,h3,h4 { font-family:'Cormorant Garamond','Fraunces','Noto Serif Thai',Georgia,serif; line-height:1.05; letter-spacing:-0.01em; color:var(--forest-700); font-weight:600; }
+    /* Thai fallback inside serif/Inter-only blocks (system Thai font as last resort) */
+    :lang(th), .thai { font-family:'Sarabun','Noto Sans Thai','Tahoma',sans-serif; }
     .display-tight { letter-spacing:-0.015em; line-height:1.02; }
 
     /* Cream paper texture — subtle warm noise that echoes printed parchment */
@@ -185,8 +187,8 @@
       box-shadow: 0 1px 1px rgba(45,74,54,0.04), 0 6px 18px -10px rgba(45,74,54,0.20);
       transition: transform 220ms cubic-bezier(0.34,1.56,0.64,1), box-shadow 220ms ease, border-color 220ms ease; position:relative; }
     .menu-card:hover { transform:translateY(-3px); box-shadow:0 2px 4px rgba(45,74,54,0.06), 0 22px 38px -18px rgba(45,74,54,0.32); border-color:var(--gold-500); }
-    .menu-card h3 { color:var(--forest-700); font-family:'Cormorant Garamond','Fraunces',Georgia,serif; }
-    .menu-card .menu-price { display:inline-block; font-family:'Inter',sans-serif; font-weight:700; color:var(--espresso);
+    .menu-card h3 { color:var(--forest-700); font-family:'Cormorant Garamond','Fraunces','Noto Serif Thai',Georgia,serif; }
+    .menu-card .menu-price { display:inline-block; font-family:'Inter','Sarabun',sans-serif; font-weight:700; color:var(--espresso);
       background:var(--gold-100); border:1px solid var(--gold-500); border-radius:999px; padding:2px 12px; font-size:14px; letter-spacing:.02em; }
     .menu-card--star { background:linear-gradient(180deg,#FAF3E1 0%,#EFE0B0 100%); border-color:var(--gold-500); }
     .menu-card--star h3 { color:var(--forest-900); }
@@ -194,14 +196,14 @@
     /* Botanical double-line frame for the Bread & Brunch section — mirrors the printed menu */
     .menu-frame { position:relative; padding:clamp(28px,4vw,52px) clamp(20px,3.5vw,40px); border:1.5px solid var(--forest-700); border-radius:6px; background:rgba(250,243,225,0.55); }
     .menu-frame::before { content:''; position:absolute; inset:6px; border:0.75px solid var(--forest-700); border-radius:3px; pointer-events:none; }
-    .menu-frame__title { font-family:'Cormorant Garamond','Fraunces',Georgia,serif; font-weight:700; letter-spacing:.06em; color:var(--forest-700); }
+    .menu-frame__title { font-family:'Cormorant Garamond','Fraunces','Noto Serif Thai',Georgia,serif; font-weight:700; letter-spacing:.06em; color:var(--forest-700); }
     .menu-frame__sub { display:inline-block; font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--gold-700); border-top:1px solid var(--gold-500); border-bottom:1px solid var(--gold-500); padding:2px 10px; font-size:13px; letter-spacing:.18em; text-transform:uppercase; }
 
     .tile { position:relative; overflow:hidden; border-radius:12px; background:var(--cream-200); }
     .tile img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 600ms ease; }
     .tile:hover img { transform:scale(1.04); }
     .tile-tint { position:absolute; inset:0; background:linear-gradient(180deg,transparent 45%, rgba(31,51,40,0.55) 100%); mix-blend-mode:multiply; pointer-events:none; }
-    .tile-cap { position:absolute; left:14px; bottom:12px; background:rgba(31,51,40,0.78); color:#FAF3E1; padding:6px 10px; border-radius:6px; font-size:12px; backdrop-filter:blur(4px); font-family:'Cormorant Garamond',serif; letter-spacing:.04em; }
+    .tile-cap { position:absolute; left:14px; bottom:12px; background:rgba(31,51,40,0.78); color:#FAF3E1; padding:6px 10px; border-radius:6px; font-size:12px; backdrop-filter:blur(4px); font-family:'Cormorant Garamond','Noto Serif Thai',serif; letter-spacing:.04em; }
     .tile-fallback-1 { background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.30), transparent 40%), linear-gradient(135deg,#6B321A 0%,#A14E2F 60%,#C57040 100%); }
     .tile-fallback-2 { background: radial-gradient(circle at 60% 40%, rgba(255,255,255,.25), transparent 50%), linear-gradient(135deg,#D4B86A 0%,#B89A4A 100%); }
     .tile-fallback-3 { background: radial-gradient(circle at 20% 70%, rgba(255,255,255,.18), transparent 50%), linear-gradient(135deg,#1F3328 0%,#2D4A36 50%,#5D7E5A 100%); }
@@ -212,7 +214,25 @@
     .status-dot.is-closed::before { background:#E89A6B; box-shadow:0 0 0 4px rgba(232,154,107,.25); }
 
     .sticky-cta { position:fixed; left:16px; right:16px; bottom:16px; z-index:80; display:none; align-items:center; justify-content:space-between; padding:14px 22px; background:var(--terra-500); color:#FAF3E1; border-radius:999px; text-decoration:none; font-weight:600; box-shadow:0 10px 30px rgba(161,78,47,0.40); }
-    @media (max-width: 720px) { .sticky-cta { display:flex; } body { padding-bottom:80px; } }
+    @media (max-width: 720px) {
+      .sticky-cta { display:flex; }
+      body { padding-bottom:80px; }
+      /* Tap targets — Apple HIG 44px min on mobile.
+         Bumps small inline anchors in body copy without affecting desktop layout. */
+      footer a,
+      #visit dd a,
+      section p a,
+      .menu-note a {
+        display:inline-block;
+        padding:10px 6px;
+        margin:-8px 0;
+        min-height:44px;
+        line-height:1.5;
+      }
+      /* The brand mark and primary nav CTA need a tiny vertical bump */
+      header a[href="#top"] { padding:6px 0; }
+      header .btn { min-height:44px; }
+    }
     @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration:0.01ms !important; animation:none !important; } html { scroll-behavior:auto; } .tile:hover img { transform:none; } }
   </style>
 </head>
@@ -300,7 +320,8 @@
     </p>
     <div class="mt-9 inline-flex items-center gap-3 text-[13px]" style="color:var(--espresso-3);">
       <span class="block h-px w-12" style="background:var(--gold-500);"></span>
-      <span class="italic" style="font-family:'Cormorant Garamond',serif;">โฮลิคเฮ้าส์ คาเฟ่ในสวน บรรยากาศเป็นกันเอง · the cafe's own words, on Facebook</span>
+      <span class="italic" style="font-family:'Cormorant Garamond','Noto Serif Thai',serif;" lang="th">โฮลิคเฮ้าส์ คาเฟ่ในสวน บรรยากาศเป็นกันเอง</span>
+      <span class="italic" style="font-family:'Cormorant Garamond',serif;"> · the cafe's own words, on Facebook</span>
       <span class="block h-px w-12" style="background:var(--gold-500);"></span>
     </div>
   </div>
