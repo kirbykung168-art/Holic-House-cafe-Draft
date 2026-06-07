@@ -3,9 +3,90 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#1a1410" />
+  <meta name="theme-color" content="#2D4A36" />
   <title>Holic Haus cafe&amp;garden — Coffee &amp; quiet hours in Samut Prakan</title>
-  <meta name="description" content="A small Samut Prakan coffee shop with a shaded outdoor garden, brunch menu, and a 4.6-star reputation. Open Tue-Sun, 8:30am-5pm. ฿1-200." />
+  <meta name="description" content="A small Samut Prakan coffee shop with a shaded outdoor garden, all-day brunch menu, and a 4.6-star reputation. Open Tue-Sun, 8:30am-5pm. ฿1-200." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:site_name" content="Holic Haus cafe&amp;garden" />
+  <meta property="og:title" content="Holic Haus cafe&amp;garden — coffee, tea, brunch in Samut Prakan" />
+  <meta property="og:description" content="A shaded garden cafe on Srinagarindra Road. House-pulled espresso, all-day brunch, signature Holic Hot Tea Pot. 4.6 stars on Google, 996 followers on Facebook." />
+  <meta property="og:url" content="https://holic-house-cafe-draft.vercel.app/" />
+  <meta property="og:image" content="https://holic-house-cafe-draft.vercel.app/images/hero-large.jpg" />
+  <meta property="og:image:width" content="2000" />
+  <meta property="og:image:height" content="1126" />
+  <meta property="og:image:alt" content="Holic Haus outdoor seating — orange container wall, wooden tables, tree canopy." />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:locale:alternate" content="th_TH" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Holic Haus cafe&amp;garden" />
+  <meta name="twitter:description" content="Garden cafe, made-to-order coffee, all-day brunch. Samut Prakan, Thailand." />
+  <meta name="twitter:image" content="https://holic-house-cafe-draft.vercel.app/images/hero-large.jpg" />
+
+  <!-- JSON-LD: Restaurant -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Holic Haus cafe&garden",
+    "alternateName": "โฮลิคเฮ้าส์ คาเฟ่แอนด์การ์เด้น",
+    "description": "Garden cafe in Samut Prakan with all-day brunch, made-to-order coffee, exclusive Holic Hot Tea Pot, and a small bakery case.",
+    "url": "https://holic-house-cafe-draft.vercel.app/",
+    "image": [
+      "https://holic-house-cafe-draft.vercel.app/images/hero-large.jpg",
+      "https://holic-house-cafe-draft.vercel.app/images/shopfront.jpg",
+      "https://holic-house-cafe-draft.vercel.app/images/garden-1.jpg"
+    ],
+    "telephone": "+66641749462",
+    "email": "holichaus.cafe@gmail.com",
+    "priceRange": "฿1-200",
+    "servesCuisine": ["Coffee", "Brunch", "Bakery", "Thai"],
+    "currenciesAccepted": "THB",
+    "paymentAccepted": "Cash, Mobile payment",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "17 Thanon Srinagarindra",
+      "addressLocality": "Mueang Samut Prakan",
+      "addressRegion": "Samut Prakan",
+      "postalCode": "10270",
+      "addressCountry": "TH"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 13.5958463,
+      "longitude": 100.6090177
+    },
+    "hasMap": "https://www.google.com/maps/place/Holic+Haus+cafe%26garden/@13.5958463,100.6090177,17z",
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "08:30", "closes": "17:00" }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.6",
+      "reviewCount": 98,
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "sameAs": [
+      "https://www.facebook.com/holichaus/",
+      "https://www.instagram.com/holichauscafeandgarden/",
+      "https://www.google.com/maps/place/Holic+Haus+cafe%26garden/@13.5958463,100.6090177,17z",
+      "https://www.wongnai.com/restaurants/628930sj"
+    ],
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Outdoor seating", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Curbside pickup", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Dine-in", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "Delivery", "value": true },
+      { "@type": "LocationFeatureSpecification", "name": "LGBTQ+ friendly", "value": true }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" />
@@ -205,6 +286,24 @@
     <li class="flex flex-col gap-1"><span class="eyebrow" style="color:var(--gold-300);">Good for</span><span class="font-medium text-[15px]">Brunch · Wi-Fi · Outdoor</span></li>
     <li class="flex flex-col gap-1"><span class="eyebrow" style="color:var(--gold-300);">Options</span><span class="font-medium text-[15px]">Dine-in · Pickup · Delivery</span></li>
   </ul>
+</section>
+
+<!-- MANIFESTO — drawn from the cafe's own Facebook tagline and the owner's posted Wongnai message -->
+<section id="manifesto" class="bg-cream-warm relative paper-grain">
+  <div class="mx-auto px-[var(--gutter)] py-[clamp(80px,11vw,140px)] text-center" style="max-width:48rem;">
+    <p class="eyebrow mb-5" style="color:var(--gold-700);">— Our message</p>
+    <p class="font-display italic text-[clamp(22px,2.6vw,30px)] leading-[1.4] mb-6" style="color:var(--forest-700); font-weight:500; letter-spacing:.005em;">
+      We're a garden cafe. The atmosphere is warm and friendly, the prices are friendly, and the coffee is made to order — tell us how you like it and we'll pull it that way.
+    </p>
+    <p class="font-display text-[clamp(18px,2vw,22px)] leading-[1.5]" style="color:var(--espresso-2);">
+      The tea steeps in our own pot. The bakery case runs small and gets rebuilt every morning. The garden is shaded by the tree most of the day. Come sit a while.
+    </p>
+    <div class="mt-9 inline-flex items-center gap-3 text-[13px]" style="color:var(--espresso-3);">
+      <span class="block h-px w-12" style="background:var(--gold-500);"></span>
+      <span class="italic" style="font-family:'Cormorant Garamond',serif;">โฮลิคเฮ้าส์ คาเฟ่ในสวน บรรยากาศเป็นกันเอง · the cafe's own words, on Facebook</span>
+      <span class="block h-px w-12" style="background:var(--gold-500);"></span>
+    </div>
+  </div>
 </section>
 
 <section id="menu" class="bg-warm-paper relative grain">
